@@ -19,17 +19,59 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
-
+    //
+    private String purchasedTicket;
+    
+    private  Ticket ticketToAylesbury;
+    
+    private  Ticket ticketToAmersham;
+    
+    private  Ticket ticketToHighWycombe;
+    
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public TicketMachine(int cost)
+    public TicketMachine()
     {
-        price = cost;
+        
         balance = 0;
         total = 0;
+        
+        createTicket();
     }
-
+    public void createTicket()
+    {
+        ticketToAylesbury = new Ticket("Aylesbury", 220);
+        ticketToAmersham = new Ticket("Amersham", 350);
+        ticketToHighWycombe = new Ticket("High Wycombe", 120);
+    }
+    public void destination(String location)
+    {
+        if (location == "Aylesbury")
+        {
+            purchasedTicket = ticketToAylesbury.destination;
+            price = ticketToAylesbury.price;
+        }
+        else if (location == "Amersham")
+        {
+            purchasedTicket = ticketToAmersham.destination;
+            price = ticketToAmersham.price;
+        }
+        else if (location == "High Wycombe")
+        {
+            purchasedTicket = ticketToHighWycombe.destination;
+            price = ticketToHighWycombe.price;
+        }
+        else
+        {
+            System.out.println(" please chose a ticket from the follwoing options ");
+        
+        }
+    }
+    
+    
+    
+    
     /**
      * @Return The price of a ticket.
      */
@@ -47,23 +89,38 @@ public class TicketMachine
         return balance;
     }
 
-    /**
-     * Receive an amount of money from a customer.
-     * Check that the amount is sensible.
-     */
-    public void insertMoney(int amount)
+    public void insertTenpence()
     {
-        if(amount > 0) 
-        {
-            balance = balance + amount;
-        }
-        else 
-        {
-            System.out.println("Use a positive amount rather than: " +
-                               amount);
-        }
-    }
-
+        balance = balance + 10;
+        System.out.println(" coins added: 10 pence");
+        System.out.println(" Current Balance: " + balance);
+ 
+    }   
+    
+    public void insertTwentypence()
+    {
+        balance = balance + 20;
+        System.out.println(" coins added: 20 pence");
+        System.out.println(" Current Balance: " + balance);
+ 
+    }   
+    
+     public void insertHundredpence()
+    {
+        balance = balance + 100;
+        System.out.println(" coins added: 100 pence");
+        System.out.println(" Current Balance: " + balance);
+ 
+    }   
+    
+     public void inserttwohundredpence()
+    {
+        balance = balance + 200;
+        System.out.println(" coins added: 200 pence");
+        System.out.println(" Current Balance: " + balance);
+ 
+    }   
+    
     /**
      * Print a ticket if enough money has been inserted, and
      * reduce the current balance by the ticket price. Print
@@ -76,7 +133,7 @@ public class TicketMachine
             // Simulate the printing of a ticket.
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
-            System.out.println("# Ticket");
+            System.out.println("# Ticket" + purchasedTicket);
             System.out.println("# " + price + " cents.");
             System.out.println("##################");
             System.out.println();
@@ -104,5 +161,19 @@ public class TicketMachine
         amountToRefund = balance;
         balance = 0;
         return amountToRefund;
+    }
+    
+    public void printAllTickets()
+    {
+        System.out.print("Destination: " + ticketToAylesbury.destination + " ,");
+        System.out.println("Price: " + ticketToAylesbury.price + " pence");
+        
+        System.out.print("Destination: " + ticketToAmersham.destination + " ,");
+        System.out.println("Price: " + ticketToAmersham.price + " pence");
+        
+        System.out.print("Destination: " + ticketToHighWycombe.destination + " ,");
+        System.out.println("Price: " + ticketToHighWycombe.price + " pence");
+        
+        
     }
 }
