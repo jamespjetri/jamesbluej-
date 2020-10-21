@@ -11,7 +11,7 @@
  * 
  * Modified by Student Name
  */
-public class TicketMachine
+public class TicketMachine extends ticket
 {
     // The price of a ticket from this machine.
     private int price;
