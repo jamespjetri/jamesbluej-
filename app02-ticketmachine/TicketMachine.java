@@ -6,12 +6,12 @@
  * sensible amounts of money, and will only print a ticket
  * if enough money has been input.
  * 
- * @author David J. Barnes and Michael Kölling
- * @version 2016.02.29
+ * @author James Pjetri
+ * @version 20/10/2020
  * 
  * Modified by Student Name
  */
-public class TicketMachine extends ticket
+public class TicketMachine
 {
     // The price of a ticket from this machine.
     private int price;
@@ -21,7 +21,7 @@ public class TicketMachine extends ticket
     private int total;
     //
     private String purchasedTicket;
-    
+    // This is the ticket to the destination.
     private  Ticket ticketToAylesbury;
     
     private  Ticket ticketToAmersham;
@@ -39,12 +39,14 @@ public class TicketMachine extends ticket
         
         createTicket();
     }
+    //this shows the ticket and the prices for them 
     public void createTicket()
     {
         ticketToAylesbury = new Ticket("Aylesbury", 220);
         ticketToAmersham = new Ticket("Amersham", 350);
         ticketToHighWycombe = new Ticket("High Wycombe", 120);
     }
+   //this shows the options allowed and depending on what the user choses comes up.
     public void destination(String location)
     {
         if (location == "Aylesbury")
@@ -88,7 +90,7 @@ public class TicketMachine extends ticket
     {
         return balance;
     }
-
+    //This allows the user to add to there balance and shows them at the end the balance 
     public void insertTenpence()
     {
         balance = balance + 10;
@@ -162,7 +164,7 @@ public class TicketMachine extends ticket
         balance = 0;
         return amountToRefund;
     }
-    
+    //This prints out the destination you chose and allows 
     public void printAllTickets()
     {
         System.out.print("Destination: " + ticketToAylesbury.destination + " ,");

@@ -3,7 +3,7 @@ import java.util.Date;
  * Write a description of class Ticket here.
  *
  * @author (James Pjetri)
- * @version (16/10/2020)
+ * @version (20/10/2020)
  */
 public class Ticket
 {
@@ -25,17 +25,17 @@ public class Ticket
         this.price = price;
         datePruchased = new Date();
     }
-
+    //this displays the destination 
     public String getdestination()
     {
         return destination;
     }
-    
+    // this displays the price 
     public int  getPrice()
     {
         return price;
     }
-    
+    // this displays the destination and the price needed for the ticket.
     public void print()
     {
         System.out.print("Destination: " + destination);
